@@ -1,0 +1,1 @@
+Se observa ca cu cat puterea masinii creste (horsepower) cu atat scade eficienta acesteia (mpg - adica creste consumul)

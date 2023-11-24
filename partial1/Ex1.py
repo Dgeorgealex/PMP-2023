@@ -52,7 +52,7 @@ def first_task():    # a
 
 
 if __name__ == "__main__":
-    # first_task()
+    first_task()    # p1 wins
 
     # b + c
     # urmarim doar numarul de steme

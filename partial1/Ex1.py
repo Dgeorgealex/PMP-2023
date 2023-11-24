@@ -11,7 +11,10 @@ import networkx as nx
 
 
 def first_task():    # a
-    cheater_wins = 0
+
+    # in my implementation n = the score of p0, m = the score of p1
+
+    cheater_wins = 0  # this means that p0 wins
     for _ in range(20000):
         n = 0
         m = 0
@@ -31,7 +34,7 @@ def first_task():    # a
             if n >= m:
                 cheater_wins += 1
 
-        else: # p1 starts
+        else:  # p1 starts
             p1_throw = np.random.uniform(0, 1)
 
             if p1_throw < 0.5:
@@ -45,7 +48,7 @@ def first_task():    # a
             if n > m:
                 cheater_wins += 1
 
-    if cheater_wins > 10000:
+    if cheater_wins > 10000:  # half of the round
         print("Cheater wins - p0")
     else:
         print("Correct wins - p1")
@@ -55,7 +58,9 @@ if __name__ == "__main__":
     first_task()    # p1 wins
 
     # b + c
-    # urmarim doar numarul de steme
+    # 0 means ban
+    # 1 means stema
+
     model = BayesianNetwork([('first_throw', 'first_round'), ('first_round', 'second_round'), ('first_throw',
                                                                                                'second_round')])
 
@@ -81,7 +86,7 @@ if __name__ == "__main__":
 
     infer = VariableElimination(model)
     pro_first_round_knowing_second = infer.query(variables=['first_round'], evidence={'second_round': 0})
-    print(pro_first_round_knowing_second)   # it is mode likely to have "ban" - which seems true
+    print(pro_first_round_knowing_second)   # it is mode likely to have "ban" (0) - which seems true
 
     pos = nx.circular_layout(model)
     nx.draw(model, pos=pos, with_labels=True, node_size=4000, font_weight='bold', node_color='skyblue')

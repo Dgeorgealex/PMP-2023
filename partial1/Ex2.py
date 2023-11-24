@@ -11,9 +11,10 @@ if __name__ == "__main__":
     data = np.random.normal(niu_real, sigma_real, size=200) # a
 
     # explicatie alegere distributii
-    # Primul exemplu curs 5
-    # deviatia standard nu poate sa fie negativa, de aceea half normal
-    # pentru medie putem presupune ca va di in jur de media datelor
+    # "Conjugata a priori a unei distributii Gaussiene este tot o distributie Gaussiana"
+    # Primul exemplu curs 5 este foarte asemanator cu problema data
+    # deviatia standard nu poate sa fie negativa, de aceea half normal (media 0, val pozitive)
+    # pentru medie putem presupune ca media acesteia va fi in jur de media datelor
 
     with pm.Model() as my_model:     # b
         avg = data.mean()

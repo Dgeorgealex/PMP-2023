@@ -14,6 +14,7 @@ if __name__ == "__main__":
     # Primul exemplu curs 5
     # deviatia standard nu poate sa fie negativa, de aceea half normal
     # pentru medie putem presupune ca va di in jur de media datelor
+
     with pm.Model() as my_model:     # b
         avg = data.mean()
         miu = pm.Normal('miu', avg, 10)

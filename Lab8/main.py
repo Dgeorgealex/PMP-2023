@@ -55,6 +55,18 @@ def main():
     hdi_expected_price = az.hdi(expected_price, hdi_prob=0.95).values()
     print(hdi_expected_price)
 
+    # 5 correct, I think
+    stacked = az.extract(idata)
+    beta1_values = stacked.beta1.values
+    beta2_values = stacked.beta2.values
+    alfa_values = stacked.alfa.values
+    sigma_values = stacked.sigma.values
+
+    price_values = np.random.normal(beta1_values * 33 + beta2_values * np.log(560) + alfa_values, sigma_values)
+    hdi_expected_price_values = az.hdi(price_values, hdi_prob=0.95)
+    print(hdi_expected_price_values)
+
+
     # 6. (Bonus) We will x3 (Premium - 5, 0) to the model and analyse its posterior distribution
     with pm.Model() as my_model_premium:
         alfa = pm.Normal('alfa', mu=0, sigma=10)

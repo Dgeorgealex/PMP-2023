@@ -11,10 +11,6 @@ if __name__ == '__main__':
     x_1 = dummy_data[:, 0]
     y_1 = dummy_data[:, 1]
 
-    print(type(x_1))
-    print(y_1.shape)
-    exit(0)
-
     order = 5
     x_1p = np.vstack([x_1 ** i for i in range(1, order + 1)])
     x_1s = (x_1p - x_1p.mean(axis=1, keepdims=True)) / x_1p.std(axis=1, keepdims=True)

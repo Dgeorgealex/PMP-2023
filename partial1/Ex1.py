@@ -55,7 +55,7 @@ def first_task():    # a
 
 
 if __name__ == "__main__":
-    first_task()    # p1 wins
+    #first_task()    # p1 wins
 
     # b + c
     # 0 means ban
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 
     # print(first_throw)
     # print(first_round)
-    # print(second_round)
+    print(second_round)
 
     # columns: p1 throws once, p1 throw twice, p0 throws once, p0 throws twice
     # to compute columns 2 and 3 - used bernoulli distribution
